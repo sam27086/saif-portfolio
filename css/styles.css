@@ -1,0 +1,523 @@
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+section, nav {
+  position: relative;
+  z-index: 5;
+}
+
+#html
+{
+    scroll-behavior: smooth;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  /* Frosted glass effect */
+  background: rgba(17, 17, 17, 0.4); /* semi-transparent dark */
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Shadow for depth */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  /* Smooth transition for scroll or hover effects */
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  cursor: none; /* your custom cursor remains */
+}
+
+/* Cyan glow on hover */
+nav a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+/* Underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00ffff,
+    transparent
+  );
+  transition: width 0.35s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero {
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* ===== HERO SCROLL BUTTON MATCH PROJECT STYLE ===== */
+#scroll-btn {
+  background: rgba(17,17,17,0.9);
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#scroll-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px #00ffff;
+}
+
+
+
+
+/* ===== HERO BRAIN ===== */
+#brain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== PROJECTS ===== */
+#projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-left: 4rem;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.4;
+  max-width: 400px; /* keeps description aligned with card */
+  transition: color 0.3s ease;
+}
+
+.project-card:hover + .project-desc {
+  color: #00ffff; /* subtle cyan highlight on hover */
+}
+
+
+.project-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0.5rem 0 1.5rem 0;
+  line-height: 1.4;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none; /* so it doesn't block hover */
+}
+
+.project-card:hover + .project-desc {
+  opacity: 1;
+  transform: translateY(0);
+  color: #00ffff;
+}
+
+/* LEFT SIDE - CARDS */
+.projects-cards {
+  margin-left: 4rem;
+  z-index: 5;
+}
+
+.project-card {
+  width: 220px;
+  margin: 1rem 0;
+  padding: 2rem;
+  background: rgba(17,17,17,.9);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px #00ffff;
+}
+
+/* RIGHT SIDE - PROJECT BRAIN + IMAGE */
+.projects-brain-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50vw;
+  height: 100%;
+  overflow: visible; /* show full brain */
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+#brain-projects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+#project-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+/* ABOUT SECTION */
+
+/* ABOUT ME */
+#about {
+  background: linear-gradient(180deg, #0a0a0a, #0e0e0e);
+}
+
+.about-wrapper {
+  max-width: 800px;
+  line-height: 1.8;
+}
+
+#about h2 {
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.35);
+}
+
+#about p {
+  margin-bottom: 1.2rem;
+  color: #dcdcdc;
+}
+
+.accent {
+  color: #00ffff;
+  font-weight: 500;
+}
+
+.about-divider {
+  width: 120px;
+  height: 3px;
+  margin: 1rem 0 2rem;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+
+
+/* ===== SKILLS TABLE ===== */
+.skills-table-wrapper {
+  margin-top: 3.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.skills-title {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  color: #00ffff;
+  text-align: left;
+}
+
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(17, 17, 17, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.skills-table th,
+.skills-table td {
+  padding: 1.2rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.skills-table th {
+  background: rgba(0, 255, 255, 0.08);
+  color: #00ffff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+}
+
+.skills-table td {
+  color: #dcdcdc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  line-height: 1.6;
+}
+
+.skills-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.skills-table tr:hover td {
+  background: rgba(0, 255, 255, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-table th {
+    width: 35%;
+  }
+}
+
+
+
+
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 5;
+}
+
+.contact-wrapper h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+.contact-wrapper p {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; /* ensure above other elements */
+  z-index: 999;        /* high so clickable */
+  pointer-events: auto; /* allow clicks */
+}
+
+.contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  color: #00ffff;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  pointer-events: auto; /* ensure click works */
+}
+
+.contact-btn:hover {
+  background: rgba(0, 255, 255, 0.25);
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.contact-btn i {
+  pointer-events: none;
+}
+
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.04);
+  z-index: 3;
+}
+
+.cursor-blur {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  background: rgba(0, 255, 255, 0.18);
+  border-radius: 50%;
+  filter: blur(14px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.cursor-highlight {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #eaffff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+
+/* Hide default cursor on all interactive elements */
+button,
+a,
+.project-card,
+#scroll-btn {
+  cursor: none;
+}
+
+
+/* ===== RESPONSIVE PROJECTS FOR SMALL SCREENS ===== */
+@media (max-width: 768px) {
+  #projects {
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Left side cards centered */
+  .projects-cards {
+    margin-left: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .project-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* Right side brain and image stacked below */
+  .projects-brain-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* fixed height for small devices */
+    margin-bottom: 2rem;
+    mask-image: none; /* remove gradient masking for smaller screens */
+  }
+
+  #brain-projects {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) scale(0.6);
+    top: 50%;
+    left: 50%;
+  }
+
+  #project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  color: #00ffffaa; /* subtle cyan to match your theme */
+  font-size: 0.9rem;
+  background: #0a0a0a;
+}

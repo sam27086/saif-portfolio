@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saifullah Khan</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+
+  <!-- Three.js & GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="My Portfolio" />
+    <link rel="manifest" href="/assets/icons/site.webmanifest" />
+
+</head>
+<body>
+
+  <!-- HERO BRAIN -->
+  <div id="brain-container"></div>
+
+  <!-- NAV -->
+  <nav>
+    <h1 id="nav-title">Saifullah Khan</h1>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+  <div class="hero-content">
+    <h2>Hello, I'm a Machine Learning Enthusiast</h2>
+    <p>Exploring ML projects and building cool projects.</p>
+    <button id="scroll-btn">See Projects ↓</button>
+  </div>
+  <!-- hero brain canvas is rendered by brain.js -->
+</section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+
+  <!-- RIGHT SIDE -->
+  <div class="projects-brain-wrapper">
+    <div id="brain-projects"></div>
+    <img id="project-image" src="" alt="Project Preview"/>
+  </div>
+
+  <!-- LEFT SIDE -->
+  <div class="projects-cards">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="project-card"
+         data-image="assets/images/smart-grid.jpg"
+         onclick="window.open('https://github.com/sam27086/Smart-Grids.git','_blank')">
+      Smart-Grids
+    </div>
+    <p class="project-desc">
+      Developed a car price prediction system using Python and ML models. Implemented data preprocessing, model training, and evaluation.
+    </p>
+
+    <!-- Project 2 -->
+    <div class="project-card"
+         data-image="assets/images/software.jpg"
+         onclick="window.open('https://github.com/sam27086','_blank')">
+      Software
+    </div>
+    <p class="project-desc">
+      Created an employee management system with REST APIs, responsive frontend using HTML/CSS/JS, and backend logic in Python.
+    </p>
+
+    <!-- Project 3 -->
+    <div class="project-card"
+         data-image="assets/images/streamlit.jpg"
+         onclick="window.open('https://github.com/sam27086/movie-recommender-streamlit.git','_blank')">
+      Streamlit
+    </div>
+    <p class="project-desc">
+      Built a movie recommendation system using collaborative filtering, Streamlit UI, and integrated with a cloud database.
+    </p>
+
+  </div>
+</section>
+
+
+  <section id="about">
+  <div class="about-wrapper">
+    <h2>About Me</h2>
+    <div class="about-divider"></div>
+
+
+    <p>
+      I’m a student and <span class="accent">Machine Learning enthusiast</span> with an interest in building
+      practical software solutions. I enjoy working on projects that involve data,
+      logic, and real-world problem solving.
+    </p>
+
+    <p>
+      I have experience working on a <span class="accent">movie recommendation system</span> using Streamlit,
+      a <span class="accent">smart grid</span> college project, and an
+      <span class="accent">employee management system</span> developed for an organization
+      <em>(confidential)</em>.
+    </p>
+
+    <p>
+      I like learning by doing and improving my skills through hands-on projects.
+      Currently, I’m focused on strengthening my machine learning knowledge and
+      exploring new ideas through personal projects.
+    </p>
+    <div class="skills-table-wrapper">
+  <h3 class="skills-title">Technical Skills</h3>
+
+  <table class="skills-table">
+    <tr>
+      <th>Category</th>
+      <th>Skills</th>
+    </tr>
+
+    <tr>
+      <td>Programming & Development</td>
+      <td>
+        Python, Java, C++, JavaScript, HTML, CSS, Bootstrap, Tailwind, Git,
+        REST APIs
+      </td>
+    </tr>
+
+    <tr>
+      <td>Machine Learning & AI</td>
+      <td>
+        Supervised & Unsupervised Learning, CNNs, RNNs,
+        Recommendation Systems, Model Training & Evaluation
+      </td>
+    </tr>
+
+    <tr>
+      <td>Libraries & Tools</td>
+      <td>
+        NumPy, Pandas, Scikit-learn, TensorFlow, Keras,
+        Streamlit, FastAPI, Google Cloud ML APIs
+      </td>
+    </tr>
+  </table>
+</div>
+
+  </div>
+</section>
+
+  <section id="contact">
+  <div class="contact-wrapper">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out via email or connect on my social platforms.</p>
+    <div class="contact-buttons">
+      <a href="mailto:saifkhan27086@gmail.com" class="contact-btn">
+  <i class="fa-solid fa-envelope"></i>
+</a>
+      <a href="https://www.linkedin.com/in/saifullah-khan7/" target="_blank" class="contact-btn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.instagram.com/_sxxf.khxn_" target="_blank" class="contact-btn">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://github.com/sam27086" target="_blank" class="contact-btn">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p>© 2026 Saifullah Khan. All rights reserved.</p>
+</footer>
+
+
+
+  <!-- CURSOR -->
+  <div class="cursor">
+    <div class="cursor-blur"></div>
+    <div class="cursor-highlight"></div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/script.js"></script>
+  <script src="js/brain.js"></script>
+  <script src="js/brain-projects.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
